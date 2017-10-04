@@ -1,0 +1,26 @@
+.DS_Store
+dist
+
+# Logs
+npm-debug.log*
+yarn-error.log
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Yalc files
+.yalc
+yalc.lock
+
+# junit test/coverage reports
+ci/results
+ci/results/coverage
+coverage
+
+junit.xml

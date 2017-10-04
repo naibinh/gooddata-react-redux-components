@@ -1,0 +1,74 @@
+{
+  "name": "@gooddata/react-redux-components",
+  "version": "1.0.0",
+  "description": "GoodData React Redux Components",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "rm -rf dist && tsc -d --outDir dist --watch",
+    "prepublish": "rm -rf dist && tsc -d --outDir dist",
+    "test": "jest --watch",
+    "tslint": "./node_modules/tslint/bin/tslint --type-check --project tsconfig.base.json --format verbose './src/**/*.ts'",
+    "tslint-ci": "mkdir -p ./ci/results && ./node_modules/tslint/bin/tslint --type-check --project tsconfig.base.json --format checkstyle --out ./ci/results/tslint-results.xml './src/**/*.ts'",
+    "validate": "tsc -p tsconfig.base.json --noEmit && yarn tslint",
+    "validate-ci": "tsc -p tsconfig.base.json --noEmit && yarn tslint-ci",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "build-storybook": "build-storybook -c .storybook -o dist-storybook"
+  },
+  "author": "GoodData",
+  "license": "BSD-3-Clause",
+  "files": [
+    "dist",
+    "src",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@gooddata/react-components": "2.5.3",
+    "@storybook/addon-options": "3.2.6",
+    "@storybook/react": "3.2.6",
+    "@types/enzyme": "2.8.8",
+    "@types/jest": "20.0.8",
+    "@types/react": "16.0.5",
+    "@types/react-redux": "5.0.9",
+    "@types/storybook__addon-actions": "3.0.1",
+    "@types/storybook__react": "3.0.5",
+    "enzyme": "2.9.1",
+    "jest": "21.1.0",
+    "jest-junit": "3.0.0",
+    "react": "15.3.2",
+    "react-addons-test-utils": "15.3.2",
+    "react-dom": "15.3.2",
+    "react-redux": "5.0.6",
+    "redux": "3.7.2",
+    "ts-jest": "21.0.1",
+    "ts-loader": "2.3.3",
+    "tslint-config-gooddata": "0.0.4",
+    "typescript": "2.5.2"
+  },
+  "peerDependencies": {
+    "@gooddata/react-components": "^2.4.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^5.0.0"
+  },
+  "typings": "dist/index.d.ts",
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?)$",
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "collectCoverage": false,
+    "mapCoverage": true,
+    "coverageReporters": [
+      "html"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  }
+}
