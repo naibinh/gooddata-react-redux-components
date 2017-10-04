@@ -1,23 +1,69 @@
 # GoodData React Redux Components
+> Additional React + Redux components for building visualizations on top of GoodData platform
 
-## Installation
+## Getting started
 
-### Prerequisites (peerDependencies)
+### Usage
+To add gooddata-react-redux-components to your project, you need these peer dependencies:
+
     - React
     - Redux
     - @gooddata/react-components
 
+If you don't have the peer dependencies installed, go to your project directory and run
 ```
-yarn add @gooddata/react-redux-components
+$ yarn add react redux @gooddata/react-components
 ```
 
-## Usage
+With [yarn](https://yarnpkg.com) installed, go to your project directory and run
+```
+$ yarn add @gooddata/react-redux-components
+```
+
+## Documentation
 [Documentation in Confluence](https://confluence.intgdc.com/display/VS/React+Components)
 
-## Releasing
+## Develop
+
+### Running the development
+
+To develop, you need to run the typescript compiler. By running `yarn dev`, the typescript compiler will be run in watch mode.
+```sh
+$ cd gooddata-react-redux-components
+$ yarn dev
 ```
-git checkout master && git pull upstream master --tags
-npm version patch -m "Release v%s"
-npm publish --access=restricted
-git push upstream master --tags
+
+To see and validate the react components, you can use [Storybook](https://storybook.js.org/).
+To run the storybook in development mode, run
+```sh
+$ yarn storybook
 ```
+
+To deploy the production version of storybook, run
+```sh
+$ yarn build-storybook
+```
+
+
+### Running the tests
+
+To validate using [tslint](https://palantir.github.io/tslint/), run
+```sh
+$ yarn validate
+```
+
+### Deployment
+```
+$ git checkout master && git pull upstream master --tags
+$ npm version patch -m "Release v%s"
+$ npm publish --access=restricted
+$ git push upstream master --tags
+```
+
+## Contributing
+Report bugs and features on our [issues page](https://github.com/gooddata/gooddata-react-redux-components/issues).
+
+## License
+Copyright (C) 2017, GoodData(R) Corporation. All rights reserved.
+
+For more information, please see [LICENSE](https://github.com/gooddata/gooddata-react-redux-components/blob/master/LICENSE)
