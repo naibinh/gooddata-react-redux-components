@@ -9,7 +9,7 @@ export function removeFilter(filterId: string) {
     };
 }
 
-export function changeFilter(filterId: string, changes: Object) {
+export function changeFilter(filterId: string, changes: object) {
     return {
         type: CHANGE_FILTER,
         payload: {

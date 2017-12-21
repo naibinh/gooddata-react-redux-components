@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "GoodData React Redux Components",
   "main": "dist/index.js",
+  "config": {
+    "tslint": "./{src,stories}/**/*.{ts,tsx}"
+  },
   "scripts": {
     "dev": "rm -rf dist && tsc -d --outDir dist --watch",
     "prepublish": "rm -rf dist && tsc -d --outDir dist",
     "test": "jest --watch",
-    "tslint": "./node_modules/tslint/bin/tslint --type-check --project tsconfig.base.json --format verbose './src/**/*.ts'",
-    "tslint-ci": "mkdir -p ./ci/results && ./node_modules/tslint/bin/tslint --type-check --project tsconfig.base.json --format checkstyle --out ./ci/results/tslint-results.xml './src/**/*.ts'",
+    "run-tslint": "./node_modules/tslint/bin/tslint -p tsconfig.base.json",
+    "tslint": "yarn run-tslint -- -t verbose '$npm_package_config_tslint'",
+    "tslint-ci": "mkdir -p ./ci/results && yarn run-tslint -- -t checkstyle -o ./ci/results/tslint-results.xml '$npm_package_config_tslint'",
     "validate": "tsc -p tsconfig.base.json --noEmit && yarn tslint",
     "validate-ci": "tsc -p tsconfig.base.json --noEmit && yarn tslint-ci",
     "storybook": "start-storybook -p 9001 -c .storybook",
@@ -22,7 +26,9 @@
     "LICENSE"
   ],
   "devDependencies": {
+    "@gooddata/data-layer": "3.2.0",
     "@gooddata/react-components": "2.5.3",
+    "@storybook/addon-actions": "3.2.18",
     "@storybook/addon-options": "3.2.6",
     "@storybook/react": "3.2.6",
     "@types/enzyme": "2.8.8",
@@ -41,10 +47,11 @@
     "redux": "3.7.2",
     "ts-jest": "21.0.1",
     "ts-loader": "2.3.3",
-    "tslint-config-gooddata": "0.0.4",
+    "tslint-config-gooddata": "0.0.7",
     "typescript": "2.5.2"
   },
   "peerDependencies": {
+    "@gooddata/data-layer": "^3.2.0",
     "@gooddata/react-components": "^2.4.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
