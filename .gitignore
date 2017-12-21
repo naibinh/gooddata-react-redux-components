@@ -24,3 +24,4 @@ ci/results/coverage
 coverage
 
 junit.xml
+.idea

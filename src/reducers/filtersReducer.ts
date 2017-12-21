@@ -8,7 +8,7 @@ export interface IReduxAction {
 }
 
 // We don't want lodash in dependencies for just one function
-function omit(object: Object, keyToOmit: string) {
+function omit(object: object, keyToOmit: string) {
     return Object.keys(object).reduce((memo, objKey) => {
         if (objKey === keyToOmit) {
             return memo;
